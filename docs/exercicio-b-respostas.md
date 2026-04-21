@@ -29,8 +29,12 @@ Guia do professor. Abrir só depois do debrief da turma. A branch `feat/scholars
 8. **`console.log` sobrando**, tem um `console.log("chegou aqui")` no handler.
 9. **Mensagem de commit genérica**, um único commit chamado `ajuste`.
 10. **Descrição do MR vazia**, não dá contexto ao revisor.
-11. **Arquivo .DS_Store** vai junto no diff.
+11. **`buildError` importado e nunca usado**, código morto entrando no repo.
 12. **Função chamada `calc`**, sem dizer o que calcula.
+
+### Bônus, caso o revisor aprofunde
+
+- `// eslint-disable-next-line no-unused-vars` mascarando uma variável `_token` que existe só para "usar" o segredo. Sinal de alerta: lint silenciado é lint escondido.
 
 ## Pontos bônus, se o aluno for longe
 
