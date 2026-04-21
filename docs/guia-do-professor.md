@@ -75,4 +75,4 @@ A lista completa do que está errado no MR proposital está em [`exercicio-b-res
 
 ## Próxima aula
 
-Aula 05 entra em arquitetura e gabaritos de projeto. Deixe os alunos saírem com a sensação de que qualidade não é uma etapa separada, é algo que aparece na escrita do código, na revisão e no painel.
+Aula 05 entra em arquitetura e gabaritos de projeto. A turma sai melhor desta aula quando percebe que qualidade aparece em três lugares diferentes da rotina: na hora de escrever, na hora de revisar e na hora de olhar para o painel depois.
