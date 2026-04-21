@@ -1,0 +1,46 @@
+{
+  "name": "academic-tracker",
+  "version": "0.1.0",
+  "description": "API didática de acompanhamento acadêmico. Laboratório da Aula 04 do Módulo 13 de Engenharia de Software, Inteli T13.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint 'src/**/*.js' 'tests/**/*.js'",
+    "lint:fix": "eslint 'src/**/*.js' 'tests/**/*.js' --fix",
+    "format": "prettier --write 'src/**/*.js' 'tests/**/*.js'",
+    "sonar:up": "bash scripts/sonar-up.sh",
+    "sonar:scan": "bash scripts/sonar-scan.sh",
+    "sonar:down": "bash scripts/sonar-down.sh"
+  },
+  "author": "José Romualdo da Costa Filho, Inteli",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "eslint": "^9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "globals": "^15.11.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3",
+    "sonar-scanner": "^3.1.0",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageReporters": ["text", "lcov"],
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/app.js"
+    ]
+  }
+}

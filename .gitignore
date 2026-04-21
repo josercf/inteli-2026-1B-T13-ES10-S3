@@ -1,0 +1,9 @@
+node_modules
+coverage
+.sonar
+.scannerwork
+*.log
+.DS_Store
+.idea
+.vscode
+dist

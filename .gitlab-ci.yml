@@ -1,0 +1,59 @@
+stages:
+  - test
+  - quality
+
+image: node:20
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+install:
+  stage: test
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+    expire_in: 30 min
+
+lint:
+  stage: test
+  needs: [install]
+  script:
+    - npm run lint
+
+test:
+  stage: test
+  needs: [install]
+  script:
+    - npm test
+  artifacts:
+    paths:
+      - coverage/
+    expire_in: 30 min
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+
+sonar:
+  stage: quality
+  needs: [test]
+  image:
+    name: sonarsource/sonar-scanner-cli:latest
+    entrypoint: ['']
+  script:
+    - |
+      if [ -z "$SONAR_HOST_URL" ] || [ -z "$SONAR_TOKEN" ]; then
+        echo "SONAR_HOST_URL e/ou SONAR_TOKEN ausentes. Job pulando propositalmente."
+        exit 0
+      fi
+    - sonar-scanner
+  rules:
+    - if: '$SONAR_HOST_URL && $SONAR_TOKEN'
+      when: always
+    - when: never
+  variables:
+    GIT_DEPTH: 0
