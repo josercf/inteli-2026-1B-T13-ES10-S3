@@ -3,6 +3,7 @@ const db = require('./db');
 const studentsRouter = require('./students/students.routes');
 const coursesRouter = require('./courses/courses.routes');
 const gradesRouter = require('./grades/grades.routes');
+const scholarshipRouter = require('./scholarship/scholarship.routes');
 
 function createApp() {
   const app = express();
@@ -15,6 +16,7 @@ function createApp() {
   app.use('/students', studentsRouter);
   app.use('/courses', coursesRouter);
   app.use('/grades', gradesRouter);
+  app.use('/scholarship', scholarshipRouter);
 
   app.use((err, req, res, _next) => {
     if (err.status) {
